@@ -64,12 +64,10 @@ public class GamePanel extends JPanel implements Runnable{
     });
 
 
-      
-        JLabel 
         String[] choosing = {"Blue", "Red"};
         int choice  = JOptionPane.showOptionDialog(
             null,
-            ,
+            "Choose your character color:",
             "Character Selection",
             JOptionPane.DEFAULT_OPTION,
             JOptionPane.DEFAULT_OPTION,
