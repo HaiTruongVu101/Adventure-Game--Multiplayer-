@@ -64,7 +64,7 @@ public class GamePanel extends JPanel implements Runnable{
     });
 
 
-        String[] choosing = {"Blue", "Red"};
+        String[] choosing = {"blue", "red"};
         int choice  = JOptionPane.showOptionDialog(
             null,
             "Choose your character color:",
