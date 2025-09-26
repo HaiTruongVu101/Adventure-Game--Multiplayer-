@@ -1,19 +1,20 @@
+# Java Adventure Game Project
+
+This is a simple Java game project with a basic structure inspired by [RyiSnow](https://www.youtube.com/@RyiSnow) on YouTube.
+
+## Project Structure
+
+- `src`: Contains all Java source files.
+- `lib`: Contains external dependencies (if any).
+- `bin`: Compiled output files are generated here by default.
+
 ## Getting Started
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+1. Clone or download the repository.
+2. Place your source files in the `src` folder.
+3. Compile your project so that class files are generated in the `bin` folder.
+4. Run the main class from the `bin` directory.
 
-## Folder Structure
+## Credits
 
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
-
+**Shout out to [RyiSnow](https://www.youtube.com/@RyiSnow) for the excellent tutorials and inspiration for the basic structure of this Java game project!**
