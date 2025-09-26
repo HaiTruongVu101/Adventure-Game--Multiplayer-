@@ -27,16 +27,18 @@ public class javaClient implements Runnable {
             options,
             options[0]
         );
-        if (mode == 1) { // Multiplayer
+        if (mode == 1) {                // Multiplayer
             try {
+
                 // You can prompt for IP/port here if you want
-                return new javaClient("127.0.0.1", 6784);
+                return new javaClient("LocalHost", 6784);
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Could not connect to server. Starting in single player mode.");
+                JOptionPane.showMessageDialog(null, "Could not connect to server. Closing the app");
+                System.exit(0);
                 return null;
             }
         } else {
-            return null; // Single player mode
+            return null;                // Single player mode
         }
     }
     
@@ -65,7 +67,7 @@ public void run() {
             lastReceived = msg;
         }
     } catch (IOException e) {
-        // Handle disconnect or error
+        
     }
 }
 
