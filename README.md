@@ -13,7 +13,8 @@ This is a simple Java game project with a basic structure inspired by [RyiSnow](
 1. Clone or download the repository.
 2. Place your source files in the `src` folder.
 3. Compile your project so that class files are generated in the `bin` folder.
-4. Run the main class from the `bin` directory.
+4. Run server.py if you want to play multiplayer mode.
+5. Run the main class from the `bin` directory.
 
 ## Credits
 
