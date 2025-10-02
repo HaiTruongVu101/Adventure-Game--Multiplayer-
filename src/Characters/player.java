@@ -14,7 +14,7 @@ public class player extends characs {
     String spriteType = "red";
 
     // Red sprite images
-    BufferedImage up1r, up2r, down1r, down2r, left1r, left2r, right1r, right2r;
+   
 
 
     public player(GamePanel gp, Key_handler H, String spriteType) {
