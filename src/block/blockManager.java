@@ -41,6 +41,15 @@ public class blockManager {
             bl[2] = new block();
             bl[2].image = ImageIO.read(getClass().getResourceAsStream("/pics/block/water.png"));
 
+            bl[3] = new block();
+            bl[3].image = ImageIO.read(getClass().getResourceAsStream("/pics/block/dirt.png"));
+
+            bl[4] = new block();
+            bl[4].image = ImageIO.read(getClass().getResourceAsStream("/pics/block/sand.png"));
+
+            bl[5] = new block();
+            bl[5].image = ImageIO.read(getClass().getResourceAsStream("/pics/block/tree.png"));
+
         } catch(IOException e) {
             e.printStackTrace();
         }
@@ -49,7 +58,7 @@ public class blockManager {
 
    public void loadMap() {
     try {
-        InputStream ml = getClass().getResourceAsStream("/pics/maps/map(1).txt");
+        InputStream ml = getClass().getResourceAsStream("/pics/maps/map(2).txt");
         if (ml == null) {
             System.out.println("Map file not found!");
             return;
