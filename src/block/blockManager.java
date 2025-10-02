@@ -21,7 +21,7 @@ public class blockManager {
         this.gp = gp;
 
         bl = new block[10];
-        mapNum = new int[gp.maxScreenCol][gp.maxScreenRow];
+        mapNum = new int[gp.maxWorldCol][gp.maxWorldRow];
 
         getBlockImage();
         loadMap();
@@ -64,10 +64,10 @@ public class blockManager {
             return;
         }
         BufferedReader br = new BufferedReader(new InputStreamReader(ml));
-        for (int row = 0; row < gp.maxScreenRow; row++) {
+        for (int row = 0; row < gp.maxWorldRow; row++) {
             String lineText = br.readLine();
             String[] numbers = lineText.split(" ");
-            for (int col = 0; col < gp.maxScreenCol; col++) {
+            for (int col = 0; col < gp.maxWorldCol; col++) {
                 int num = Integer.parseInt(numbers[col]);
                 mapNum[col][row] = num;
             }
@@ -79,25 +79,28 @@ public class blockManager {
 }
     public void draw(Graphics2D g2) {
 
-        int col = 0;
-        int row = 0;
-        int x = 0;
-        int y = 0;
+        int Worldcol = 0;
+        int Worldrow = 0;
+        
 
-        while(col < gp.maxScreenCol && row < gp.maxScreenRow) {
+        while(Worldcol < gp.maxWorldCol && Worldrow < gp.maxWorldRow) {
 
-            int blockNum = mapNum[col][row];
+            int blockNum = mapNum[Worldcol][Worldrow];
 
-            g2.drawImage(bl[blockNum].image, x, y, gp.tileSize, gp.tileSize, null);
-            col++;
-            x = x + gp.tileSize;
+            int World_x = Worldcol * gp.tileSize;
+            int World_y = Worldrow * gp.tileSize;
+            int Screen_x = World_x - gp.player.World_x + gp.player.Screen_x;
+            int Screen_y = World_y - gp.player.World_y + gp.player.Screen_y;
 
-            if (col == gp.maxScreenCol) {
-                col = 0;
-                x = 0;
-                row++;
-                y = y + gp.tileSize;
+            g2.drawImage(bl[blockNum].image, Screen_x, Screen_y, gp.tileSize, gp.tileSize, null);
+            Worldcol++;
+            
+
+            if (Worldcol == gp.maxWorldCol) {
+    Worldcol = 0;
+    Worldrow++;
+}
+                
             }
         }
     }
-}

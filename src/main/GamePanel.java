@@ -30,11 +30,19 @@ public class GamePanel extends JPanel implements Runnable{
     public final int screenHeight = tileSize * maxScreenRow; // 576 pixels
     public final int screenWidth = tileSize * maxScreenCol; // 768 pixels
 
+
+    // WORLD SETTINGS
+    public final int maxWorldCol = 60;
+    public final int maxWorldRow = 60;
+    public final int WorldWidth = tileSize * maxScreenCol;
+    public final int WorldHeight= tileSize * maxScreenRow;
+
+
     blockManager blockM = new blockManager(this);
     Key_handler H = new Key_handler();
     Thread gameThread;
     String mySprite;
-    player player = new player(this, H, mySprite);
+    public player player = new player(this, H, mySprite);
     
 
 
@@ -96,41 +104,6 @@ public class GamePanel extends JPanel implements Runnable{
 
     @Override
 
-    // public void run() {
-
-    //     int fps = 60;
-    //     double drawInterval = 1000000000.0/fps;
-    //     double nextDrawTime = System.nanoTime() + drawInterval;
-        
-    //     while (gameThread != null) {
-            
-            
-          
-    //     update();
-    //                                                                                                  ALL OF THIS IS A DIFFERENT WAY                                                                                                                    
-
-
-    //     repaint();
-
-    //         try {
-    //     double remainingTime = nextDrawTime - System.nanoTime();
-    //     remainingTime = remainingTime / 10000000;
-
-    //     if (remainingTime < 0) {
-    //         remainingTime = 0;
-    //     }
-
-    //     Thread.sleep((long) remainingTime);
-
-    //     nextDrawTime += drawInterval;
-
-    //         } catch (InterruptedException e) {
-    //             e.printStackTrace();
-
-    //         }
-        
-    //     }
-    // }
     public void run() {
 
         double drawInterval = 1000000000.0 / 60.0; // nanoseconds per frame (60 FPS)
@@ -170,7 +143,7 @@ public class GamePanel extends JPanel implements Runnable{
         try {
             if (client != null) {
                 data = client.getLastReceived();
-                client.sendMessage(myId + ":" + player.x + "," + player.y + "," + mySprite + "," + player.direction + "," + player.walkingNum);
+                client.sendMessage(myId + ":" + player.World_x + "," + player.World_y + "," + mySprite + "," + player.direction + "," + player.walkingNum);
             }
 
         } catch (IOException e) {
@@ -223,8 +196,8 @@ public class GamePanel extends JPanel implements Runnable{
     int walkingNum = (int) data[4];
 
     player tempPlayer = new player(this, null, spriteType);
-    tempPlayer.x = ox;
-    tempPlayer.y = oy;
+    tempPlayer.World_x = ox;
+    tempPlayer.World_y = oy;
     tempPlayer.direction = direction;
     tempPlayer.walkingNum = walkingNum;
     tempPlayer.draw(g2);

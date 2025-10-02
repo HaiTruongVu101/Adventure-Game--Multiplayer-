@@ -4,7 +4,7 @@ import java.awt.image.BufferedImage;
 
 public class characs {
 
-    public int x, y;
+    public int World_x, World_y;
     public int speed;
 
     public BufferedImage up1r, up2r, down1r, down2r, left1r, left2r, right1r, right2r;

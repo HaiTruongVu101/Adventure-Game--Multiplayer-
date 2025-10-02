@@ -13,8 +13,8 @@ public class player extends characs {
     Key_handler H;
     String spriteType = "red";
 
-    // Red sprite images
-   
+    public final int Screen_x;
+    public final int Screen_y;
 
 
     public player(GamePanel gp, Key_handler H, String spriteType) {
@@ -22,6 +22,8 @@ public class player extends characs {
         this.gp = gp;
         this.H = H;
         this.spriteType = spriteType;
+        Screen_x = gp.screenWidth/2;
+        Screen_y = gp.screenHeight/2;
 
         Values();
         getImage();
@@ -31,11 +33,11 @@ public class player extends characs {
 
         
     if ("red".equals(spriteType)) {
-        x = 300;
-        y = 100;
+        World_x = gp.tileSize * 31;
+        World_y = gp.tileSize * 31;
     } else {
-        x = 100;
-        y = 100;
+        World_x = gp.tileSize * 30;
+        World_y = gp.tileSize * 30;
     }
     speed = 3;
     direction = "right";
@@ -84,22 +86,22 @@ public class player extends characs {
 
     if(H.upPressed) {
         direction = "up";
-        y -= speed;
+        World_y -= speed;
         moving = true;
     }
     else if(H.downPressed) {
         direction = "down";
-        y += speed;
+        World_y += speed;
         moving = true;
     }
     else if(H.leftPressed) {
         direction = "left";
-        x -= speed;
+        World_x -= speed;
         moving = true;
     }
     else if(H.rightPressed) {
         direction = "right";
-        x += speed;
+        World_x += speed;
         moving = true;
     }
 
@@ -136,7 +138,7 @@ public class player extends characs {
             case "right": image = (walkingNum == 1) ? right1 : right2; break;
         }
     }
-    g2.drawImage(image, x, y, gp.tileSize, gp.tileSize, null);
+    g2.drawImage(image, Screen_x, Screen_y, gp.tileSize, gp.tileSize, null);
 }
         
        
