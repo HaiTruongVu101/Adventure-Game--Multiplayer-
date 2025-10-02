@@ -116,7 +116,7 @@ public class player extends characs {
         walkingCounter = 0;
     }
 }
-
+    
 
         
 
@@ -139,6 +139,7 @@ public class player extends characs {
         }
     }
     g2.drawImage(image, Screen_x, Screen_y, gp.tileSize, gp.tileSize, null);
+    
 }
         
        

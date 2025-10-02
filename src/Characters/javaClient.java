@@ -31,7 +31,7 @@ public class javaClient implements Runnable {
             try {
 
                 // You can prompt for IP/port here if you want
-                return new javaClient("", 6784);
+                return new javaClient("192.168.0.98", 6784);
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Could not connect to server. Closing the app");
                 System.exit(0);

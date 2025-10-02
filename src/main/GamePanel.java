@@ -15,6 +15,7 @@ import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+import java.awt.image.BufferedImage;
 
 public class GamePanel extends JPanel implements Runnable{
     
@@ -195,15 +196,37 @@ public class GamePanel extends JPanel implements Runnable{
     String direction = (String) data[3];
     int walkingNum = (int) data[4];
 
-    player tempPlayer = new player(this, null, spriteType);
-    tempPlayer.World_x = ox;
-    tempPlayer.World_y = oy;
-    tempPlayer.direction = direction;
-    tempPlayer.walkingNum = walkingNum;
-    tempPlayer.draw(g2);
-    
-    
+    // Remove tempPlayer usage!
+    // player tempPlayer = new player(this, null, spriteType);
+    // tempPlayer.World_x = ox;
+    // tempPlayer.World_y = oy;
+    // tempPlayer.direction = direction;
+    // tempPlayer.walkingNum = walkingNum;
+    // tempPlayer.draw(g2);
+
+    // Calculate screen position relative to your own player
+    int screenX = ox - player.World_x + player.Screen_x;
+    int screenY = oy - player.World_y + player.Screen_y;
+
+    BufferedImage image = null;
+    if ("red".equals(spriteType)) {
+        switch (direction) {
+            case "up":    image = (walkingNum == 1) ? player.up1r    : player.up2r;    break;
+            case "down":  image = (walkingNum == 1) ? player.down1r  : player.down2r;  break;
+            case "left":  image = (walkingNum == 1) ? player.left1r  : player.left2r;  break;
+            case "right": image = (walkingNum == 1) ? player.right1r : player.right2r; break;
         }
+    } else {
+        switch (direction) {
+            case "up":    image = (walkingNum == 1) ? player.up1    : player.up2;    break;
+            case "down":  image = (walkingNum == 1) ? player.down1  : player.down2;  break;
+            case "left":  image = (walkingNum == 1) ? player.left1  : player.left2;  break;
+            case "right": image = (walkingNum == 1) ? player.right1 : player.right2; break;
+        }
+    }
+
+    g2.drawImage(image, screenX, screenY, tileSize, tileSize, null);
+}
      g2.dispose();
     }
         
